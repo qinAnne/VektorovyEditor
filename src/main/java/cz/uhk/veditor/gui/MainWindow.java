@@ -30,7 +30,7 @@ public class MainWindow extends JFrame {
         super("Vektorový editor");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        //initTestData();
+        initTestData();
         createToolBar();
 
         GraphPanel panel = new GraphPanel(objekty);
@@ -126,17 +126,16 @@ public class MainWindow extends JFrame {
         gr.add(btDrag);
     }
 
-    //        private void initTestData () {
-//            objekty.add(new Circle(new Point(100, 100), 50, Color.GREEN));
-//            objekty.add(new Square(new Point(200, 100), 50, Color.BLUE));
-//            objekty.add(new Circle(new Point(100, 300), 50, Color.YELLOW));
-//            objekty.add(new Circle(new Point(500, 100), 50, Color.BLUE));
-//            objekty.add(new Circle(new Point(300, 300), 50, Color.BLUE));
-//            objekty.add(new Square(new Point(600, 400), 50, Color.RED));
-//            objekty.add(new Circle(new Point(200, 300), 50, Color.BLACK));
-//            objekty.add(new Rectangle(new Point(350, 200), 50, 60, Color.GREEN));
-//            objekty.add(new Triangle(new Point(150, 250), 50, Color.GREEN));
-//        }
+            private void initTestData () {
+            objekty.add(new Circle(new Point(100, 100), 50, Color.GREEN));
+            objekty.add(new Square(new Point(200, 100), 50, Color.BLUE));
+            objekty.add(new Circle(new Point(100, 300), 50, Color.YELLOW));
+            objekty.add(new Circle(new Point(300, 300), 50, Color.BLUE));
+            objekty.add(new Square(new Point(600, 400), 50, Color.RED));
+            objekty.add(new Circle(new Point(200, 300), 50, Color.BLACK));
+            objekty.add(new Rectangle(new Point(350, 200), 50, 60, Color.GREEN));
+            objekty.add(new Triangle(new Point(150, 250), 50, Color.GREEN));
+        }
     private AbstractGeomObject findSelected ( int x, int y){
         Optional<AbstractGeomObject> res = objekty.stream().filter(obj -> obj.contains(x - offsetX, y - offsetY)).findFirst();
         return res.orElse(null);
